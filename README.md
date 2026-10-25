@@ -1,113 +1,180 @@
-# Frontend Mentor - Hotel booking confirmation page
+<div align="center">
 
-![Design preview for the Hotel booking confirmation page coding challenge](./preview.jpg)
+# Maison Soleil — Hotel Booking Confirmation
 
-## Welcome! 👋
+A responsive, accessible booking confirmation page for a small guest house in Cassis, built as a solution to the [Frontend Mentor](https://www.frontendmentor.io) *Hotel booking confirmation page* challenge.
 
-Thanks for checking out this coding challenge.
+[![Live demo](https://img.shields.io/badge/demo-live-b7411b?style=flat-square)](https://alexisg1993.github.io/hotel-booking-confirmation-page/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-38bdf8?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+[![No build step](https://img.shields.io/badge/build-none-2b2620?style=flat-square)](#getting-started)
+[![License: MIT](https://img.shields.io/badge/license-MIT-edb63a?style=flat-square)](./LICENSE)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+**[View live site](https://alexisg1993.github.io/hotel-booking-confirmation-page/)** · [Challenge brief](./docs/challenge-brief.md) · [Style guide](./docs/style-guide.md)
 
-**To do this challenge, you need a good understanding of HTML and CSS.** A little JavaScript is optional for the interactive touches, like opening the navigation menu and copying the Wi-Fi password.
+![Desktop view of the Maison Soleil booking confirmation page](./screenshots/desktop.jpg)
 
-## The challenge
+</div>
 
-Build a hotel booking confirmation page and get it looking as close to the design as possible.
+---
 
-The page pairs a branded sidebar with a stack of overlapping cards: a printed-style receipt, a warm note from the host, and a row of arrival, Wi-Fi, and breakfast details. The layered cards, the mix of serif, sans-serif, and monospace type, and the responsive behavior are where most of the work is.
+## Table of contents
 
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [Built with](#built-with)
+- [Getting started](#getting-started)
+- [Project structure](#project-structure)
+- [Implementation notes](#implementation-notes)
+- [Accessibility](#accessibility)
+- [Responsive behaviour](#responsive-behaviour)
+- [Roadmap](#roadmap)
+- [Acknowledgements](#acknowledgements)
+- [License](#license)
 
-Your users should be able to:
+## Features
 
-- View the optimal layout for the interface depending on their device's screen size
-- See hover and focus states for all interactive elements on the page
-- Open and close the navigation menu on smaller screens (optional JavaScript)
-- Copy the Wi-Fi password to their clipboard using the copy button (optional JavaScript)
+| Feature | Details |
+| --- | --- |
+| **Responsive layout** | Mobile-first, tested from 320px to 1920px with no horizontal scroll. |
+| **Hover-to-fan cards** | The receipt and welcome card swing apart on hover *or* keyboard focus, revealing a sun illustration. Pure CSS transforms and transitions. |
+| **Mobile navigation** | The sidebar collapses into a full-screen toggle menu with focus management and <kbd>Esc</kbd> to close. |
+| **Copy Wi-Fi password** | One-click copy via the Clipboard API, with visual and screen-reader feedback. |
+| **Print receipt** | A dedicated `@media print` view prints only the receipt, flat and centred on white. |
+| **Add to calendar** | Generates an iCalendar (`.ics`) file from the stay dates in the browser. Works with Outlook, Google Calendar and Apple Calendar. |
+| **Interaction states** | Hover and visible focus states on every link and button. |
+| **Reduced motion** | Animations are disabled when the user prefers reduced motion. |
 
-## Ideas to test yourself
+## Screenshots
 
-The design gives you plenty to build. If you want to push further, here are some optional extensions to try:
+<table>
+  <tr>
+    <td width="62%"><img src="./screenshots/desktop-fanned.jpg" alt="Receipt and welcome cards fanned apart with a sun illustration between them"></td>
+    <td><img src="./screenshots/print-view.jpg" alt="Print view showing only the receipt"></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>Cards fanned out on hover</sub></td>
+    <td align="center"><sub>Print view</sub></td>
+  </tr>
+</table>
 
-- Add a working copy button so guests can copy the Wi-Fi password in one click
-- Make the sidebar navigation collapse into a toggleable menu on smaller screens
-- Animate the receipt and host-note cards so they fan out on hover
-- Wire up the "Print receipt" button to open a clean print view using the browser's print dialog
-- Generate an "Add to calendar" file from the stay dates so guests can save their booking
-- Load the booking details from a JSON file instead of hardcoding them
+<table>
+  <tr>
+    <td width="50%"><img src="./screenshots/mobile.jpg" alt="Full mobile layout at 375px"></td>
+    <td><img src="./screenshots/mobile-menu.jpg" alt="Mobile navigation menu open"></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>Mobile (375px)</sub></td>
+    <td align="center"><sub>Mobile menu</sub></td>
+  </tr>
+</table>
+
+## Built with
+
+- Semantic **HTML5**
+- **[Tailwind CSS](https://tailwindcss.com)** (Play CDN), with the style guide's colour tokens and font families mapped into the theme config
+- A small amount of custom **CSS** for the card fan, receipt paper texture and print styles
+- Vanilla **JavaScript**: no frameworks or dependencies
+- Self-hosted variable fonts: **Fraunces**, **DM Sans** and **DM Mono**
 
 ## Getting started
 
-### What's included
+There is no build step. Clone the repo and open the page:
 
-Your task is to build out the project to the designs inside the `/design` folder. You'll find a mobile and a desktop version of the design, plus the open navigation menu and the hover and focus states.
+```bash
+git clone https://github.com/AlexisG1993/hotel-booking-confirmation-page.git
+cd hotel-booking-confirmation-page
+```
 
-In your download:
+Then either open `index.html` directly in a browser, or serve it locally (recommended, since the Clipboard API requires a secure context):
 
-- Mobile and desktop designs (JPG format)
-- All required assets in the `/assets` folder
-- Variable and static font files (or link to Google Fonts)
-- `style-guide.md` with colors, fonts, and other design specs
+```bash
+npx serve .
+# or
+python -m http.server 8000
+```
 
-**Want more accurate builds?** The designs are in JPG static format, which means you'll need to use your best judgment for styles such as `font-size`, `padding`, and `margin`. If you'd like the Figma design file to help build a more accurate solution faster, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+> [!NOTE]
+> Styles are generated at runtime by the Tailwind Play CDN, so an internet connection is required on first load.
 
-## Using AI coding assistants
+## Project structure
 
-We've included two files to help you if you're using AI coding assistants (like Claude, GitHub Copilot, Cursor, etc.) while working on this challenge:
+```
+.
+├── index.html            # The page: markup, Tailwind config, custom CSS and JS
+├── assets/
+│   ├── fonts/            # Fraunces, DM Sans, DM Mono (OFL-licensed)
+│   └── images/           # Logo, icons and illustrations (SVG)
+├── design/               # Reference designs from Frontend Mentor
+├── docs/
+│   ├── challenge-brief.md
+│   └── style-guide.md
+└── screenshots/          # Images used in this README
+```
 
-- `AGENTS.md` - Contains detailed instructions for AI assistants on how to help you with this challenge. It's tailored to this challenge's difficulty level, so the AI will provide guidance appropriate to your learning stage—offering more support for beginner challenges and encouraging more independence on advanced ones.
-- `CLAUDE.md` - A pointer file that directs Claude-based tools to the AGENTS.md instructions.
+## Implementation notes
 
-**How to use them:** You don't need to do anything! These files are automatically detected by most AI coding tools. The AI will read them and adjust its behavior to be a better learning partner—guiding you toward solutions rather than just giving you the answers.
+### Hover-to-fan cards
 
-**Note:** These files are designed to help you *learn*, not to do the work for you. The AI is instructed to ask questions, give hints, and explain concepts rather than writing complete solutions.
+Both cards are laid out side by side in a flex container, then repositioned with `transform` only, so the animation never triggers layout. The fan state applies on both `:hover` and `:focus-within`, which makes it reachable by keyboard. Below 1024px a separate media query uses smaller offsets so the cards never leave the viewport.
 
-## Building your project
+```css
+.fan:hover .card-receipt,
+.fan:focus-within .card-receipt { transform: translate(-90px, -10px) rotate(4.3deg); }
+```
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+### Print view
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+Instead of `visibility: hidden` (which still reserves space and can produce blank pages), every element except the receipt is removed with `display: none`. The receipt's rotation, shadow and transition are reset so it prints flat.
 
-### Want some support on the challenge?
+### Calendar file
 
-[Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+The `.ics` file is assembled as an RFC 5545 string with CRLF line endings and downloaded through a `Blob` URL. Check-in and check-out are local Cassis times (CEST, UTC+2) stored as UTC, so the event appears at the correct local time in any calendar app.
 
-## Deploying your project
+| | Local (Cassis) | Stored (UTC) |
+| --- | --- | --- |
+| Check-in | Sat 25 Apr 2026, 15:00 | `20260425T130000Z` |
+| Check-out | Wed 29 Apr 2026, 11:00 | `20260429T090000Z` |
 
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
+### Design fidelity
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+The build was checked against the reference JPGs with Puppeteer screenshots over several rounds, adjusting spacing, type sizes and card geometry until it matched to within ~3px at 375px and 1440px.
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://www.frontendmentor.io/guides/hosting-your-solution).
+## Accessibility
 
-## Submitting your solution
+- Landmarks (`header`, `nav`, `main`, `aside`) and a logical heading order
+- `aria-current="page"` on the active navigation item
+- Menu toggle uses `aria-expanded` / `aria-controls`; focus moves into the menu on open and back to the toggle on close
+- Copy feedback is announced through an `aria-live="polite"` region
+- Decorative images use empty `alt` text; icon-only buttons have visually hidden labels
+- Visible `:focus-visible` outlines on all interactive elements
+- Respects `prefers-reduced-motion`
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://www.frontendmentor.io/guides/how-to-submit-solutions) for tips on how to do this.
+## Responsive behaviour
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+| Breakpoint | Layout |
+| --- | --- |
+| `< 768px` | Top bar with menu toggle; cards stacked, welcome card first; info cards in one column |
+| `≥ 768px` | Receipt and welcome card overlap side by side; "Hover to fan" hint appears |
+| `≥ 1024px` | Arrival, Wi-Fi and Breakfast cards in a three-column row |
+| `≥ 1280px` | Persistent sidebar navigation replaces the top bar |
 
-**We strongly recommend overwriting this `README.md` with a custom one.** We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code. The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings.
+## Roadmap
 
-## Sharing your solution
+- [ ] Replace the Tailwind Play CDN with a compiled, purged stylesheet
+- [ ] Load booking details from a JSON file so the page and calendar export share one data source
+- [ ] Trap focus inside the open mobile menu and mark background content `inert`
+- [ ] Fold long `.ics` lines to 75 octets per RFC 5545
 
-There are multiple places you can share your solution:
+## Acknowledgements
 
-1. Submit it on the platform and share your solution page in the **#finished-projects** channel of our [community](https://www.frontendmentor.io/community)
-2. Share on [X (formerly Twitter)](https://x.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in your post. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on [LinkedIn](https://www.linkedin.com/company/frontend-mentor/).
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
+- Challenge, designs and assets by [Frontend Mentor](https://www.frontendmentor.io)
+- Typefaces: [Fraunces](https://fonts.google.com/specimen/Fraunces), [DM Sans](https://fonts.google.com/specimen/DM+Sans) and [DM Mono](https://fonts.google.com/specimen/DM+Mono), licensed under the SIL Open Font License
 
-## Got feedback for us?
+## Author
 
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
+**AlexisG1993** — [GitHub](https://github.com/AlexisG1993)
 
-**This challenge is completely free. Please share it with anyone who will find it useful for practice.**
+## License
 
-**Have fun building!** 🚀
+The source code in this repository is released under the [MIT License](./LICENSE).
+Designs, images and the challenge brief are © Frontend Mentor and are included for reference only. Fonts are distributed under the SIL Open Font License (see `assets/fonts/*/OFL.txt`).
