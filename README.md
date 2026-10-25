@@ -4,12 +4,13 @@
 
 A responsive, accessible booking confirmation page for a small guest house in Cassis, built as a solution to the [Frontend Mentor](https://www.frontendmentor.io) *Hotel booking confirmation page* challenge.
 
-[![Live demo](https://img.shields.io/badge/demo-live-b7411b?style=flat-square)](https://alexisg1993.github.io/hotel-booking-confirmation-page/)
+[![Live demo](https://img.shields.io/badge/demo-live-b7411b?style=flat-square)](https://hotel-booking-confirmation-page-omega.vercel.app/)
+[![Deployed on Vercel](https://img.shields.io/badge/deployed_on-Vercel-000000?style=flat-square&logo=vercel&logoColor=white)](https://hotel-booking-confirmation-page-omega.vercel.app/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-38bdf8?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![No build step](https://img.shields.io/badge/build-none-2b2620?style=flat-square)](#getting-started)
 [![License: MIT](https://img.shields.io/badge/license-MIT-edb63a?style=flat-square)](./LICENSE)
 
-**[View live site](https://alexisg1993.github.io/hotel-booking-confirmation-page/)** · [Challenge brief](./docs/challenge-brief.md) · [Style guide](./docs/style-guide.md)
+**[View live site](https://hotel-booking-confirmation-page-omega.vercel.app/)** · [Challenge brief](./docs/challenge-brief.md) · [Style guide](./docs/style-guide.md)
 
 ![Desktop view of the Maison Soleil booking confirmation page](./screenshots/desktop.jpg)
 
@@ -27,6 +28,7 @@ A responsive, accessible booking confirmation page for a small guest house in Ca
 - [Implementation notes](#implementation-notes)
 - [Accessibility](#accessibility)
 - [Responsive behaviour](#responsive-behaviour)
+- [Deployment](#deployment)
 - [Roadmap](#roadmap)
 - [Acknowledgements](#acknowledgements)
 - [License](#license)
@@ -157,6 +159,17 @@ The build was checked against the reference JPGs with Puppeteer screenshots over
 | `≥ 768px` | Receipt and welcome card overlap side by side; "Hover to fan" hint appears |
 | `≥ 1024px` | Arrival, Wi-Fi and Breakfast cards in a three-column row |
 | `≥ 1280px` | Persistent sidebar navigation replaces the top bar |
+
+## Deployment
+
+The site is a static page with no build step, deployed in two places:
+
+| Host | URL |
+| --- | --- |
+| **Vercel** (primary) | <https://hotel-booking-confirmation-page-omega.vercel.app/> |
+| GitHub Pages (mirror) | <https://alexisg1993.github.io/hotel-booking-confirmation-page/> |
+
+Both redeploy automatically on every push to `main`.
 
 ## Roadmap
 
